@@ -24,12 +24,12 @@ def main(filename):
     file.close()
     os.system("python temp.py build")
     os.remove("temp.py")
-    input("\nDONE")
+    eval(input("\nDONE"))
 
 if __name__=="__main__":
     if len(sys.argv)==2:
         print("Starting build ->")
-        print(sys.argv[1])
+        print((sys.argv[1]))
         main(sys.argv[1])
     else:
         print("No argument\n Pass: Filename")

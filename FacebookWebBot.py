@@ -144,7 +144,7 @@ class FacebookBot(webdriver.PhantomJS):
             self.get(url)
             return True
         except Exception as e:
-            print("Failed to log out ->\n", e)
+            print(("Failed to log out ->\n", e))
             return False
 
     def postTextToURL(self, text, url):
@@ -158,7 +158,7 @@ class FacebookBot(webdriver.PhantomJS):
             submit.click()
             return True
         except Exception as e:
-            print("Failed to post in ", url, "->\n", e)
+            print(("Failed to post in ", url, "->\n", e))
             return False
 
     def postTextToTimeline(self, text):
@@ -296,7 +296,7 @@ class FacebookBot(webdriver.PhantomJS):
             return self.getScrenshotName(
                 "CommentingIn_" + self.title, screenshot, screenshotPath)
         except Exception as e:
-            print("Can't comment in ", postUrl, "\n->", e)
+            print(("Can't comment in ", postUrl, "\n->", e))
 
     def getGroupMembers(self, url, deep=3, start=0):
         """Return a list of members of a group(url) as a list:Person iterat deep(int) times"""
@@ -351,7 +351,7 @@ class FacebookBot(webdriver.PhantomJS):
         try:
             mb = self.find_elements_by_class_name("bx")
         except NoSuchElementException:
-            print("Can't message to ", name)
+            print(("Can't message to ", name))
             return False
         mm = None
         for m in mb:
@@ -409,9 +409,9 @@ class FacebookBot(webdriver.PhantomJS):
             for r in g:
                 try:
                     self.get(g[r][2])
-                    print("Request to group: ", r)
+                    print(("Request to group: ", r))
                 except Exception:
-                    print("Fail to send request to: ", r)
+                    print(("Fail to send request to: ", r))
         return g
 
     def getPostInProfile(
@@ -448,7 +448,7 @@ class FacebookBot(webdriver.PhantomJS):
                     if tFi not in pList:
                         pList.append(tFi)
                         n += 1
-                        print(n, "-\n", tFi)
+                        print((n, "-\n", tFi))
                     else:
                         continue
                 # press more

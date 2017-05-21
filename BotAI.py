@@ -121,10 +121,10 @@ def getUsers():
         try:
             pg = bot.getGroupMembers(g, 1, random.randint(0, 20))
             peopleList += pg
-            print("DONE", len(pg))
+            print(("DONE", len(pg)))
         except Exception:
             print("fail")
-    print(len(peopleList))
+    print((len(peopleList)))
 
 
 def addAll():
@@ -132,9 +132,9 @@ def addAll():
     for p in peopleList:
         try:
             bot.sendFriendRequest(p.profileLink)
-            print("Added: ", p.name)
+            print(("Added: ", p.name))
         except Exception:
-            print("Fail to add: ", p.name)
+            print(("Fail to add: ", p.name))
 
 
 def spam_group():
@@ -142,16 +142,16 @@ def spam_group():
     for g in grups:
         try:
             posts_ += bot.getPostInGroup(g)[0]
-            print("Number of posts: ", len(posts_))
+            print(("Number of posts: ", len(posts_)))
         except Exception:
-            print("Fail get posts in :", bot.title)
+            print(("Fail get posts in :", bot.title))
     for p in posts_:
         try:
             n=bot.commentInPost(p.linkToComment, random.choice(spam))
             bot.save_screenshot(n)
-            print("Commenting in", bot.title)
+            print(("Commenting in", bot.title))
         except Exception:
-            print("Fail comment in ", bot.title)
+            print(("Fail comment in ", bot.title))
 
 
 if __name__ == "__main__":
